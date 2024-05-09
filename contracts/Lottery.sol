@@ -157,4 +157,12 @@ abstract contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
     function getNumberOfplayers() public view returns(uint256) {
         return s_players.length;
     }
+
+    function getLatestTimeStamp() public view returns{
+        return s_lastTimeStamp;
+    }
+    function getRequestConfimations() public view returns{
+        return REQUEST_CONFIRMATIONS;
+    }
+
 }
