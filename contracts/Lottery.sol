@@ -17,7 +17,7 @@ error Lottery_UpkeepNotNeeded(uint256 currentBalance, uint256 numPlayers, uint25
  * @dev This implements Chainlink VRF v2 and Chainlink Keepers
  */
 
-abstract contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
+contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
     /* Type declarations */
     enum RaffleState {
         OPEN,
@@ -39,6 +39,8 @@ abstract contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
     RaffleState private s_raffleState;
     uint256 private s_lastTimeStamp;
     uint256 private immutable i_interval;
+ 
+   
 
     /* Events */
     event LotteryEnter(address indexed player);
@@ -47,13 +49,13 @@ abstract contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
     event WinnerPicked(address indexed winner);
 
     /* Functions */
-    constructor(
+    constructor (
         address vrfCordinatorV2,
         uint256 entranceFee,
-        bytes32 gasLane,
+        bytes32 gasLane, 
         uint64 subscriptionId,
-        uint32 callbackGasLimit,
-        uint256 interval
+        uint256 interval,
+        uint32 callbackGasLimit
     ) VRFConsumerBaseV2(vrfCordinatorV2) {
         i_entranceFee = entranceFee;
         i_vrfCoordinator = VRFCoordinatorV2Interface(vrfCordinatorV2);
