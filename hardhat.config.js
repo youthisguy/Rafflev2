@@ -35,6 +35,10 @@ module.exports = {
       blockConfirmations: 6,
     }
   },
+  etherscan: {
+    apiKey: ETHERSCAN_API_KEY,
+    customChains: [],
+},
   solidity: "0.8.24",
   namedAccounts: {
     deployer: {
